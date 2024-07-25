@@ -3,8 +3,6 @@ package com.example.myapplication
 import org.junit.Assert.*
 
 import org.junit.Test
-import kotlin.random.Random
-import kotlin.random.nextInt
 
 class MainKtTest {
 
@@ -104,4 +102,42 @@ class MainKtTest {
             assertEquals("iRow = $iRow, iCol = $iCol", ixOrig, ix)
         }
     }
+
+    @Test
+    fun inversionsTest1() {
+        val state = byteArrayOf(
+            1, 2, 3, 4,
+            5, 6, 7, 8,
+            9, 10, 11, 12,
+            13, 14, 15, 16
+        )
+        println(countInversions(INITIAL_STATE))
+        assertTrue(isFeasibleSolution(state))
+    }
+
+    @Test
+    fun inversionsTest2() {
+        val state = byteArrayOf(
+            1, 2, 3, 4,
+            5, 6, 16, 7,
+            9, 10, 11, 8,
+            13, 14, 15, 12
+        )
+        println(countInversions(INITIAL_STATE))
+        assertTrue(isFeasibleSolution(state))
+    }
+
+    @Test
+    fun inversionsFalseTest1() {
+        val state = byteArrayOf(
+            1, 2, 3, 4,
+            5, 6, 7, 8,
+            9, 10, 11, 12,
+            13, 15, 14, 16
+        )
+        println(countInversions(INITIAL_STATE))
+        assertFalse(isFeasibleSolution(state))
+    }
+
+
 }
